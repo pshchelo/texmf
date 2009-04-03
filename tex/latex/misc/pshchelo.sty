@@ -1,0 +1,40 @@
+% this file is pshchelo.sty
+% common TeX-styles for Pavlo Shchelokovskyy
+\ProvidesPackage{pshchelo}
+
+%creates nonumbered display equation #1 with punctuation sign #2 after it
+\newcommand{\eqnonum}[2]
+ {
+ \begin{equation*}
+ #1
+ \;\;#2
+ \end{equation*}
+ }
+
+%creates numbered display equation #2 with punctuation sign #3 after it and label #1
+\newcommand{\eqn}[3]
+ {
+ \begin{equation} \label{#1}
+ #2
+ \;\;#3
+ \end{equation}
+ }
+
+%plus-sign for super(sub)script
+\newcommand{\splus}
+ {
+ {\scriptscriptstyle{+}}
+ } 
+
+%creates a figure from file "pics/#1.pdf" 
+%with file name as a label, width #2 cm and caption #3.
+\newcommand{\fig}[3]{
+	\vspace{3mm}
+	\begin{figure}[!htbp]
+		\begin{center}
+			\includegraphics[width=#2 cm]{pics/#1.pdf}
+			\caption{#3}
+			\label{#1}
+		\end{center}
+	\end{figure}
+}
