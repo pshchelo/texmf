@@ -20,21 +20,27 @@
  \end{equation}
  }
 
-%plus-sign for super(sub)script
+%plus-sign for super/sub-script
 \newcommand{\splus}
  {
  {\scriptscriptstyle{+}}
  } 
 
-%creates a figure from file "pics/#1.pdf" 
-%with file name as a label, width #2 cm and caption #3.
+%creates a figure from file "figs/#1.pdf"
+%with file name as a label, width #2 cm, caption #3 and label fig:#1
 \newcommand{\fig}[3]{
-	\vspace{3mm}
 	\begin{figure}[!htbp]
 		\begin{center}
-			\includegraphics[width=#2 cm]{pics/#1.pdf}
+			\includegraphics[width=#2 cm]{figs/#1.pdf}
 			\caption{#3}
-			\label{#1}
+			\label{fig:#1}
 		\end{center}
 	\end{figure}
 }
+
+\newcommand{\Fref}[1]{Figure~\ref{#1}}
+\newcommand{\fref}[1]{figure~\ref{#1}}
+\newcommand{\Eref}[1]{Equation~\ref{#1}}
+\newcommand{\eref}[1]{equation~\ref{#1}}
+\newcommand{\Sref}[1]{Section~\ref{#1}}
+\newcommand{\sref}[1]{section~\ref{#1}}
