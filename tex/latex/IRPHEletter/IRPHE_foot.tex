@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                   %
+%                                                                   %
+% Janvier 2005                                                      %
+% Address IRPHE is now in a single centered box, no phone numbers   %
+% or e-mail, since this information is normally under the sender's  % 
+% name                                                              %
+%   For the footer only one box is now necessary, so its width      % 
+%   has little iportance                                            %
+%                                                                   %
+%   Syntaxes :                                                      %
+%   \newsavebox{\boxname}                                           %
+%   \sbox{\boxname}{text} or \savebox{\boxname}[width][pos]{text}   %
+%   \usebox{\boxname}                                               %
+%                                                                   %
+%   \makebox[width][horiz justification]{text}                      %
+%                                                                   %
+%   \parbox [vertical justification]{width}{text}                   %
+%                                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Set up page Footer
+%  
+%   Fixed fonts for footer
+%   We will use cmr or cmss according to option specified
+%   If not we will use CMR
+%
+\ifthenelse{\boolean{@cmrstyle}}%
+% CMR normal weight, 8 pt
+{\DeclareFixedFont{\foottn}{OT1}{cmr}{m}{n}{8}%
+% Sans serif bold 8 pt
+\DeclareFixedFont{\foottb}{OT1}{cmr}{b}{n}{8}}
+%
+% Sans serif normal weight, 8 pt
+{\DeclareFixedFont{\foottn}{OT1}{cmss}{m}{n}{8}%
+% Sans serif bold 8 pt
+\DeclareFixedFont{\foottb}{OT1}{cmss}{b}{n}{8}}
+%
+%
+%
+% 16 July 2001
+% % Address of IRPHE is put centered into a parbox 
+% A parbox is necessary since there are several lines
+% The initial letters of UMR are in (my footer-style) bold text.
+% Line spacing is adjusted manually to be smaller than normal text.
+% The \'E of IRPH\'E is accented, in accordance with French typographic
+% rules as stated by the French Academy (and Larousse !)
+%
+\newsavebox{\irphefoot}
+  \sbox{\irphefoot}{\parbox[t]{\textwidth}{
+   \rule{\textwidth}{0.2pt}\\[-4pt]
+   \centering
+   \foottb{IRPH\'{E}}, \foottn{UMR 6594\\[-4pt]
+    49, rue Fr\'{e}d\'{e}ric Joliot--Curie, BP 146 \\[-4pt]
+    F - 13384 Marseille Cedex 13, France \\[-4pt]
+    Tel: 04 96 13 97 00  Fax: 04 96 13 97 09}
+    }}
+%
